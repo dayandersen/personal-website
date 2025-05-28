@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayne Andersen-Lambrecht</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* bg-slate-900 */
+            color: #e2e8f0; /* text-slate-200 */
+            min-height: 100vh;
+            display: flex; 
+            flex-direction: column; 
+        }
+        
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .fade-in {
+            animation: fadeInAnimation 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeInAnimation {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .terminal-cursor {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Fallback styles if Tailwind fails to load */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .bg-slate-900 { background-color: #0f172a; }
+        .bg-slate-800 { background-color: #1e293b; }
+        .text-emerald-400 { color: #34d399; }
+        .text-white { color: white; } 
+        .text-slate-300 { color: #cbd5e1; }
+        .text-slate-400 { color: #94a3b8; }
+        .text-slate-500 { color: #64748b; }
+        .text-blue-400 { color: #60a5fa; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .p-8 { padding: 2rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .space-y-3 > * + * { margin-top: 0.75rem; }
+    </style>
+</head>
+<body>
+    <header class="bg-slate-800 shadow-lg sticky top-0 z-50 border-b border-slate-700">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl mono text-emerald-400">~/dayne-andersen</span>
+            <div class="space-x-4">
+                <a href="https://blog.dandersen.net/" target="_blank" rel="noopener noreferrer" 
+                   class="text-slate-300 hover:text-emerald-400 transition-colors px-3 py-2 rounded-md text-sm font-medium mono">
+                   blog
+                </a>
+                <a href="https://github.com/dayandersen" target="_blank" rel="noopener noreferrer" 
+                   class="text-slate-300 hover:text-emerald-400 transition-colors px-3 py-2 rounded-md text-sm font-medium mono">
+                   github
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 flex-grow">
+        <section class="py-16 fade-in">
+            <div class="mb-8">
+                <div class="mono text-sm text-slate-400 mb-4">
+                    <span class="text-emerald-400">dayne@aws</span>:<span class="text-blue-400">~</span>$ whoami
+                </div>
+                <h1 class="text-4xl lg:text-6xl font-bold text-white mb-6">
+                    Dayne Andersen-Lambrecht
+                </h1>
+                <div class="text-lg lg:text-xl text-slate-300 space-y-3 max-w-3xl">
+                    <p>Senior Software Engineer who builds distributed systems at Amazon. 
+                    Currently making content review platforms that don't fall over when you look at them wrong.</p>
+                    
+                    <p class="text-slate-400">Previously launched AWS services, optimized away $5M+ in infrastructure costs, 
+                    and mentored enough engineers that I should probably start charging for it.</p>
+                    
+                    <p class="text-sm text-slate-500">
+                        <span class="text-emerald-400">//</span> Also tried self-hosting everything once. 
+                        <a href="https://blog.dandersen.net/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 underline">
+                            Wrote about why that was a terrible idea
+                        </a> for all three of my readers.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="space-y-3 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
+                <a href="https://blog.dandersen.net/" target="_blank" rel="noopener noreferrer" 
+                   class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all transform hover:scale-105 block text-center mono">
+                   read my disasters
+                </a>
+                <a href="https://github.com/dayandersen" target="_blank" rel="noopener noreferrer" 
+                   class="bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all transform hover:scale-105 block text-center mono">
+                   judge my code
+                </a>
+            </div>
+        </section>
+
+        <section class="py-16 fade-in" style="animation-delay: 0.2s;">
+            <div class="mono text-sm text-slate-400 mb-6">
+                <span class="text-emerald-400">dayne@aws</span>:<span class="text-blue-400">~</span>$ ps aux | grep "current_projects"
+            </div>
+            
+            <div class="bg-slate-800 rounded-lg p-8 border border-slate-700">
+                <div class="grid md:grid-cols-2 gap-8"> <div>
+                        <h3 class="text-xl font-semibold text-emerald-400 mb-4 mono"># stuff_that_pays_bills</h3>
+                        <ul class="space-y-2 text-slate-300">
+                            <li class="flex items-start">
+                                <span class="text-emerald-400 mr-2 mono">▶</span>
+                                <span>Building content review systems that don't crash when someone uploads a 2GB video</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-400 mr-2 mono">▶</span>
+                                <span>Saving 450 operator hours/month via deduplication (the robots are finally helping!)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-400 mr-2 mono">▶</span>
+                                <span>Teaching engineers how to stop making the same mistakes I made 3 years ago</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-emerald-400 mb-4 mono"># learning_and_breaking_things</h3>
+                        <ul class="space-y-2 text-slate-300">
+                            <li class="flex items-start">
+                                <span class="text-yellow-400 mr-2 mono">◆</span>
+                                <span>IaC patterns that don't make developers want to quit programming</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-400 mr-2 mono">◆</span>
+                                <span>Finding out why my CPU is screaming at 90% (spoiler: it's always the JSON parsing)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-400 mr-2 mono">◆</span>
+                                <span>Writing blog posts that exactly <a href="https://blog.dandersen.net/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 underline">three people</a> will read</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 fade-in" style="animation-delay: 0.4s;">
+            <div class="mono text-sm text-slate-400 mb-6">
+                <span class="text-emerald-400">dayne@aws</span>:<span class="text-blue-400">~</span>$ grep -r "employment_history" career/
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-emerald-600 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                        <h3 class="text-xl font-semibold text-white">Amazon Publishing</h3>
+                        <span class="mono text-sm text-slate-400 mt-1 md:mt-0">Sept 2023 - Present</span> </div>
+                    <p class="text-slate-300 mb-3">Senior SDE making content review platforms that actually work</p>
+                    <ul class="text-sm text-slate-400 space-y-1 list-none"> <li><span class="text-emerald-400 mono">→</span> Cut tenant onboarding from 11 weeks to 4 weeks (because 11 weeks is just mean)</li>
+                        <li><span class="text-emerald-400 mono">→</span> Processing 1.2M+ reviews/month without everything catching fire</li>
+                        <li><span class="text-emerald-400 mono">→</span> Built APIs that tenants actually want to use (revolutionary concept, I know)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-emerald-600 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                        <h3 class="text-xl font-semibold text-white">AWS DataSync</h3>
+                        <span class="mono text-sm text-slate-400 mt-1 md:mt-0">Sept 2021 - Sept 2023</span>
+                    </div>
+                    <p class="text-slate-300 mb-3">Shipped DataSync Discovery from napkin sketch to public AWS service</p>
+                    <ul class="text-sm text-slate-400 space-y-1 list-none">
+                        <li><span class="text-emerald-400 mono">→</span> Hit a C-Suite deadline (miracles do happen)</li>
+                        <li><span class="text-emerald-400 mono">→</span> Optimized ETL jobs, saved $5M+/year (turns out NoSQL queries matter)</li>
+                        <li><span class="text-emerald-400 mono">→</span> Survived multiple pen tests without crying</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-emerald-600 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                        <h3 class="text-xl font-semibold text-white">AWS Config</h3>
+                        <span class="mono text-sm text-slate-400 mt-1 md:mt-0">Feb 2019 - Sept 2021</span>
+                    </div>
+                    <p class="text-slate-300 mb-3">Built compliance features for people who have way too many AWS accounts</p>
+                    <ul class="text-sm text-slate-400 space-y-1 list-none">
+                        <li><span class="text-emerald-400 mono">→</span> Launched OrganizationConformancePacks & OrganizationConfigRules</li>
+                        <li><span class="text-emerald-400 mono">→</span> Designed APIs that didn't make customers file support tickets</li>
+                        <li><span class="text-emerald-400 mono">→</span> Mentored interns who are now better engineers than me</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 fade-in" style="animation-delay: 0.6s;">
+            <div class="mono text-sm text-slate-400 mb-6">
+                <span class="text-emerald-400">dayne@aws</span>:<span class="text-blue-400">~</span>$ cat philosophy.txt | head -5
+            </div>
+            
+            <div class="bg-slate-800 rounded-lg p-8 border border-slate-700">
+                <div class="space-y-6 text-slate-300">
+                    <div>
+                        <h4 class="text-emerald-400 font-semibold mb-2 mono">"Build for the problem you have, not the one you think you'll have"</h4>
+                        <p class="text-sm">Premature optimization is still the root of most evil. I've learned this the hard way approximately 47 times.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-emerald-400 font-semibold mb-2 mono">"Mentorship is the ultimate force multiplier"</h4>
+                        <p class="text-sm">The best code I've written is the code I helped someone else write. Plus, teaching people means they fix your bugs faster.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-emerald-400 font-semibold mb-2 mono">"Embrace productive failure"</h4>
+                        <p class="text-sm">Self-hosting taught me why managed services exist. Docker taught me why orchestration exists. Both were expensive lessons.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-emerald-400 font-semibold mb-2 mono">"Infrastructure as Code should be human-readable"</h4>
+                        <p class="text-sm">If your CDK makes people want to quit software engineering, you're doing it wrong. Configuration should tell stories, not hide secrets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 fade-in" style="animation-delay: 0.8s;">
+            <div class="mono text-sm text-slate-400 mb-6">
+                <span class="text-emerald-400">dayne@aws</span>:<span class="text-blue-400">~</span>$ sendmail dayne@localhost </div>
+            
+            <div class="bg-slate-800 rounded-lg p-8 border border-slate-700 text-center">
+                 <h3 class="text-2xl font-semibold text-white mb-4">Connect / Inquire</h3> <p class="text-slate-300 mb-6 max-w-lg mx-auto"> Want to chat about distributed systems, why your docker containers are misbehaving, 
+                    or how to convince management that "it works on my machine" isn't a deployment strategy?
+                </p>
+                <div class="space-y-3">
+                    <p class="mono text-sm"> <span class="text-slate-400">email:</span> 
+                        <a href="mailto:dayandersen@gmail.com" class="text-emerald-400 hover:text-emerald-300">dayandersen@gmail.com</a>
+                    </p>
+                    <p class="mono text-sm">
+                        <span class="text-slate-400">linkedin:</span> 
+                        <a href="https://linkedin.com/in/dayne-andersen" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">linkedin.com/in/dayne-andersen</a>
+                    </p>
+                </div>
+                <p class="text-slate-500 text-sm mt-6">
+                    Response time: Usually pretty good, unless I'm debugging why my deployment pipeline decided to take a vacation.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 border-t border-slate-700 mt-auto">
+        <div class="container mx-auto px-6 py-6">
+            <div class="mono text-xs text-slate-500 space-y-2">
+                <div class="flex justify-between items-center">
+                    <span>&copy; <span id="currentYear"></span> Dayne Andersen-Lambrecht. All rights reserved.</span>
+                    <span class="terminal-cursor">_</span>
+                </div>
+                <div class="text-slate-600"> <span class="text-emerald-400">//</span> Built with TailwindCSS because writing custom CSS is for people with more time than me
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        try {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        } catch (e) {
+            console.warn('Could not set current year in footer.', e); // Changed to console.warn
+        }
+    </script>
+</body>
+</html>
