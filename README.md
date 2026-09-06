@@ -1,24 +1,30 @@
 # Personal website
 
-Static homepage for https://dandersen.net/.
+Static homepage and engineering résumé for https://dandersen.net/.
 
 ## Files
 
-- `index.html`: homepage content and semantic markup.
-- `styles.css`: responsive layout, system light/dark colors, keyboard focus, and print styles.
-- `blog/blog.html`: Blogger XML theme. It must be installed through Blogger; it is not a standalone article page. Blog posts live outside this repository.
+- `index.html`: homepage and Person/ProfilePage structured data.
+- `resume.html`: printable engineering résumé, served at `/resume` by Cloudflare Pages.
+- `styles.css`: responsive layout, light/dark colors, keyboard focus, and print styles.
+- `robots.txt`, `sitemap.xml`: crawl discovery for canonical public pages.
+- `404.html`: actual not-found responses instead of the homepage fallback.
+- `_headers`: excludes Pages aliases and repository support files from search, without blocking the custom domain.
+- `blog/blog.html`: Blogger XML theme installed separately through Blogger.
 
-## Local preview
+## Preview and publishing
 
-From this directory, run `python3 -m http.server 8000`, then open http://localhost:8000/.
+Run `python3 -m http.server 8000` locally. Python's simple server uses `/resume.html`; Cloudflare Pages serves the canonical clean URL `/resume`.
+There is no build step or executable JavaScript dependency. The JSON-LD script contains data only.
 
-The homepage requires no build step, JavaScript, third-party stylesheets, or web fonts.
+The existing Cloudflare Pages Git integration deploys this repository. Publish the HTML, CSS, robots, sitemap, and headers together. The Blogger theme has a separate publishing process.
 
-## Publishing
+## Search verification after deployment
 
-Publish `index.html` and `styles.css` together at the web root using the site's existing hosting process. This repository does not currently define that process. Changes to the Blogger theme are a separate publishing step.
-
-## Editing
-
-Keep career dates and impact metrics accurate when updating the copy. Link writing entries to individual published posts. Check narrow and wide screens, system light/dark appearance, keyboard navigation, enlarged text, and print output after layout changes.
-
+- Verify Google Search Console and Bing Webmaster Tools ownership, submit the sitemap, and inspect the production URLs.
+- Check production robots and WAF/AI Crawl Control settings; source robots rules cannot override edge blocking.
+- Verify that the custom domain has no noindex header, Pages aliases do, and unknown paths return 404.
+- Public email links use Cloudflare's documented email_off comments so contact works without JavaScript.
+- Search crawler access is separate from model training preferences. Do not change account-wide permissions as part of routine content edits.
+- Profile data must describe visible facts. Job-location preferences are not a claim of residence.
+- Track qualified inquiries and interview progression separately from pageviews and automated traffic. No analytics account or event collector is configured in this repository.
