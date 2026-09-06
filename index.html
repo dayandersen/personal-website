@@ -1,436 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dayne Andersen-Lambrecht - Senior Software Engineer</title>
-    <meta name="description" content="Senior Software Engineer at Amazon building distributed systems and content review platforms. Previously launched AWS services and optimized infrastructure costs.">
-    <meta name="keywords" content="Dayne Andersen-Lambrecht, Software Engineer, AWS, Distributed Systems, Content Review, Backend Developer, Cloud Computing">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
-        
-        :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --text-primary: #e2e8f0;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            --text-accent: #34d399;
-            --border-primary: #475569;
-            --border-accent: #10b981;
-        }
-        
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg-primary: #ffffff;
-                --bg-secondary: #f8fafc;
-                --bg-tertiary: #e2e8f0;
-                --text-primary: #1e293b;
-                --text-secondary: #475569;
-                --text-muted: #64748b;
-                --text-accent: #059669;
-                --border-primary: #cbd5e1;
-                --border-accent: #10b981;
-            }
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex; 
-            flex-direction: column; 
-        }
-        
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .fade-in {
-            animation: fadeInAnimation 0.8s ease-out forwards;
-        }
-        
-        @keyframes fadeInAnimation {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        
-        .terminal-cursor {
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-        
-        /* Section separators */
-        .section-separator {
-            background: linear-gradient(90deg, transparent, var(--border-primary), transparent);
-            height: 1px;
-            margin: 3rem 0;
-            position: relative;
-        }
-        
-        .section-separator::after {
-            content: "⋯";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--bg-primary);
-            padding: 0 1rem;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            letter-spacing: 0.5rem;
-        }
-        
-        /* Employment cards - subtle glow */
-        .employment-card {
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-primary);
-        }
-        
-        .employment-card:hover {
-            box-shadow: 0 0 20px rgba(52, 211, 153, 0.1);
-            border-color: var(--border-accent);
-            transform: translateY(-2px);
-        }
-        
-        /* Abbreviation tooltips */
-        abbr[title] {
-            border-bottom: 1px dotted var(--text-accent);
-            cursor: help;
-            text-decoration: none;
-        }
-        
-        /* Print styles */
-        @media print {
-            * {
-                -webkit-print-color-adjust: exact !important;
-                color-adjust: exact !important;
-            }
-            
-            body {
-                background: white !important;
-                color: black !important;
-                font-size: 12pt;
-                line-height: 1.4;
-                font-family: 'Times New Roman', serif;
-            }
-            
-            .no-print {
-                display: none !important;
-            }
-            
-            .employment-card {
-                page-break-inside: avoid;
-                margin-bottom: 1rem;
-                border: 1px solid #ccc !important;
-                background: white !important;
-                padding: 0.5cm !important;
-            }
-            
-            a {
-                color: black !important;
-                text-decoration: underline;
-            }
-            
-            a[href^="http"]:after {
-                content: " (" attr(href) ")";
-                font-size: 9pt;
-            }
-            
-            a[href^="mailto:"]:after {
-                content: " (" attr(href) ")";
-                font-size: 9pt;
-            }
-            
-            .mono {
-                font-family: 'Courier New', monospace;
-            }
-            
-            h1 { font-size: 24pt; margin-bottom: 12pt; }
-            h2 { font-size: 18pt; margin-bottom: 10pt; }
-            h3 { font-size: 14pt; margin-bottom: 8pt; }
-            
-            .container {
-                max-width: none !important;
-                padding: 1cm !important;
-            }
-            
-            section {
-                margin-bottom: 1cm;
-            }
-            
-            .section-separator {
-                margin: 0.5cm 0;
-                height: 1px;
-                background: #ccc !important;
-            }
-            
-            .section-separator::after {
-                content: "";
-            }
-        }
-        
-        /* Fallback styles */
-        .bg-slate-900 { background-color: var(--bg-primary); }
-        .bg-slate-800 { background-color: var(--bg-secondary); }
-        .text-emerald-400 { color: var(--text-accent); }
-        .text-white { color: var(--text-primary); } 
-        .text-slate-300 { color: var(--text-secondary); }
-        .text-slate-400 { color: var(--text-muted); }
-        .border-slate-700 { border-color: var(--border-primary); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Dayne Andersen-Lambrecht — Compliance Engineering &amp; Distributed Systems</title>
+  <meta name="description" content="Dayne Andersen-Lambrecht is a Senior Software Engineer / Tech Lead at Amazon working on distributed systems, policy tooling, and compliance engineering.">
+  <link rel="canonical" href="https://dandersen.net/">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://dandersen.net/#profile",
+  "url": "https://dandersen.net/",
+  "name": "Dayne Andersen-Lambrecht — Compliance Engineering & Distributed Systems",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://dandersen.net/#person",
+    "name": "Dayne Andersen-Lambrecht",
+    "url": "https://dandersen.net/",
+    "jobTitle": "Senior Software Engineer / Tech Lead",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Amazon"
+    },
+    "description": "Dayne Andersen-Lambrecht is a Senior Software Engineer / Tech Lead at Amazon working on distributed systems, policy tooling, and compliance engineering.",
+    "knowsAbout": [
+      "Distributed systems",
+      "Policy tooling",
+      "Compliance engineering",
+      "API design",
+      "Engineering mentorship"
+    ],
+    "sameAs": [
+      "https://github.com/dayandersen",
+      "https://linkedin.com/in/dayne-andersen"
+    ]
+  }
+}
+  </script>
 </head>
 <body>
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-emerald-500 focus:text-white">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="./" aria-label="Dayne Andersen-Lambrecht, home">dayne<span aria-hidden="true"> /</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main id="main-content" class="wrap" tabindex="-1">
+    <section class="intro" aria-labelledby="intro-heading">
+      <p class="eyebrow">Senior Software Engineer / Tech Lead · Amazon</p>
+      <h1 id="intro-heading">Dayne<br>Andersen-Lambrecht<span class="accent">.</span></h1>
+      <p class="lead">I build distributed systems for policy and compliance.</p>
+      <p class="intro-detail">I’m a senior software engineer and tech lead at Amazon. I’ve led a team of 10 on policy and compliance tooling and shipped AWS services from idea to production.</p>
+      <p class="role-interest">Interested in senior, staff, and tech lead roles in the Seattle area.</p>
+      <div class="links">
+        <!--email_off--><a class="button" href="mailto:dayandersen@gmail.com?subject=Engineering%20role%20inquiry">Email me about a role</a><!--/email_off-->
+        <a href="/resume">Résumé</a>
+        <a href="https://github.com/dayandersen">GitHub</a>
+        <a href="https://linkedin.com/in/dayne-andersen">LinkedIn</a>
+      </div>
+    </section>
 
-    <header class="bg-slate-800 shadow-lg sticky top-0 z-50 border-b border-slate-700 no-print">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl mono text-emerald-400">~/dayne-andersen</span>
-            <div class="space-x-4">
-                <a href="https://blog.dandersen.net/" target="_blank" rel="noopener noreferrer" 
-                   class="text-slate-300 hover:text-emerald-400 transition-colors px-3 py-2 rounded-md text-sm font-medium mono">
-                   blog
-                </a>
-                <a href="https://github.com/dayandersen" target="_blank" rel="noopener noreferrer" 
-                   class="text-slate-300 hover:text-emerald-400 transition-colors px-3 py-2 rounded-md text-sm font-medium mono">
-                   github
-                </a>
-            </div>
-        </nav>
-    </header>
-
-    <main id="main-content" class="container mx-auto px-6 py-12 flex-grow">
-        <article>
-            <section aria-labelledby="hero-heading" class="py-16 fade-in">
-                <div class="mb-8">
-                    <div class="mono text-sm text-slate-400 mb-4 no-print">
-                        <span class="text-emerald-400">dayne@aws</span>:<span class="text-blue-400">~</span>$ whoami
-                    </div>
-                    <h1 id="hero-heading" class="text-4xl lg:text-6xl font-bold text-white mb-6">
-                        Dayne Andersen-Lambrecht
-                    </h1>
-                    <div class="text-lg lg:text-xl text-slate-300 space-y-3 max-w-3xl">
-                        <p>Senior Software Engineer who builds distributed systems at Amazon. 
-                        Currently making content review platforms that don't fall over when you look at them wrong.</p>
-                        
-                        <p class="text-slate-400">Previously launched <abbr title="Amazon Web Services">AWS</abbr> services, optimized away $5M+ in infrastructure costs, 
-                        and mentored enough engineers that I should probably start charging for it.</p>
-                        
-                        <p class="text-sm text-slate-500">
-                            <span class="text-emerald-400">//</span> Also tried self-hosting everything once. 
-                            <a href="https://blog.dandersen.net/tags/homelab/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 underline">
-                                Wrote about why that was a terrible idea
-                            </a> for all three of my readers.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="space-y-3 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
-                    <a href="https://blog.dandersen.net/" target="_blank" rel="noopener noreferrer" 
-                       class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all transform hover:scale-105 block text-center mono no-print">
-                       read my disasters
-                    </a>
-                    <a href="https://github.com/dayandersen" target="_blank" rel="noopener noreferrer" 
-                       class="bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all transform hover:scale-105 block text-center mono no-print">
-                       judge my code
-                    </a>
-                    <a href="mailto:dayandersen@gmail.com" 
-                       class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all transform hover:scale-105 block text-center mono">
-                       email me
-                    </a>
-                </div>
-            </section>
-
-            <div class="section-separator no-print"></div>
-
-            <section aria-labelledby="current-projects-heading" class="py-8 fade-in" style="animation-delay: 0.2s;">
-                <div class="mono text-sm text-slate-400 mb-6 no-print">
-                    <span class="text-emerald-400">dayne@aws</span>:<span class="text-blue-400">~</span>$ ps aux | grep "current_projects"
-                </div>
-                
-                <h2 id="current-projects-heading" class="sr-only">Current Projects</h2>
-                <div class="bg-slate-800 rounded-lg p-8 border border-slate-700">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-xl font-semibold text-emerald-400 mb-4 mono"># stuff_that_pays_bills</h3>
-                            <ul class="space-y-2 text-slate-300">
-                                <li class="flex items-start">
-                                    <span class="text-emerald-400 mr-2 mono">▶</span>
-                                    <span>Building content review systems that don't crash when someone uploads a 2GB video</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-emerald-400 mr-2 mono">▶</span>
-                                    <span><a href="https://blog.dandersen.net/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 underline">Saving 450 operator hours/month via deduplication</a> (the robots are finally helping!)</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-emerald-400 mr-2 mono">▶</span>
-                                    <span>Teaching engineers how to stop making the same mistakes I made 3 years ago</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h3 class="text-xl font-semibold text-emerald-400 mb-4 mono"># learning_and_breaking_things</h3>
-                            <ul class="space-y-2 text-slate-300">
-                                <li class="flex items-start">
-                                    <span class="text-yellow-400 mr-2 mono">◆</span>
-                                    <span><abbr title="Infrastructure as Code">IaC</abbr> patterns that don't make developers want to quit programming</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-yellow-400 mr-2 mono">◆</span>
-                                    <span>Finding out why my CPU is screaming at 90% (spoiler: it's always the cache misses, not the JSON parsing)</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-yellow-400 mr-2 mono">◆</span>
-                                    <span>Writing blog posts that exactly <a href="https://blog.dandersen.net/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 underline">three people</a> will read</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="section-separator no-print"></div>
-
-            <section aria-labelledby="employment-history-heading" class="py-8 fade-in" style="animation-delay: 0.4s;">
-                <div class="mono text-sm text-slate-400 mb-6 no-print">
-                    <span class="text-emerald-400">dayne@aws</span>:<span class="text-blue-400">~</span>$ grep -r "employment_history" career/
-                </div>
-                
-                <h2 id="employment-history-heading" class="sr-only">Employment History</h2>
-                <div class="space-y-6">
-                    <article class="employment-card bg-slate-800 rounded-lg p-6">
-                        <header class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                            <h3 class="text-xl font-semibold text-white">Amazon Publishing</h3>
-                            <time class="mono text-sm text-slate-400 mt-1 md:mt-0">Sept 2023 - Present</time>
-                        </header>
-                        <p class="text-slate-300 mb-3">Senior <abbr title="Software Development Engineer">SDE</abbr> making content review platforms that actually work</p>
-                        <ul class="text-sm text-slate-400 space-y-1 list-none">
-                            <li><span class="text-emerald-400 mono">→</span> Cut tenant onboarding from 11 weeks to 4 weeks (because 11 weeks is just mean)</li>
-                            <li><span class="text-emerald-400 mono">→</span> Processing 1.2M+ reviews/month without everything catching fire</li>
-                            <li><span class="text-emerald-400 mono">→</span> Built <abbr title="Application Programming Interface">APIs</abbr> that tenants actually want to use (revolutionary concept, I know)</li>
-                        </ul>
-                    </article>
-
-                    <article class="employment-card bg-slate-800 rounded-lg p-6">
-                        <header class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                            <h3 class="text-xl font-semibold text-white">AWS DataSync</h3>
-                            <time class="mono text-sm text-slate-400 mt-1 md:mt-0">Sept 2021 - Sept 2023</time>
-                        </header>
-                        <p class="text-slate-300 mb-3">Shipped DataSync Discovery from napkin sketch to public AWS service</p>
-                        <ul class="text-sm text-slate-400 space-y-1 list-none">
-                            <li><span class="text-emerald-400 mono">→</span> Hit a C-Suite deadline (miracles do happen)</li>
-                            <li><span class="text-emerald-400 mono">→</span> Optimized <abbr title="Extract, Transform, Load">ETL</abbr> jobs, saved $5M+/year (turns out NoSQL queries matter)</li>
-                            <li><span class="text-emerald-400 mono">→</span> Survived multiple security audits without crying</li>
-                        </ul>
-                    </article>
-
-                    <article class="employment-card bg-slate-800 rounded-lg p-6">
-                        <header class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                            <h3 class="text-xl font-semibold text-white">AWS Config</h3>
-                            <time class="mono text-sm text-slate-400 mt-1 md:mt-0">Feb 2019 - Sept 2021</time>
-                        </header>
-                        <p class="text-slate-300 mb-3">Built compliance features for people who have way too many AWS accounts</p>
-                        <ul class="text-sm text-slate-400 space-y-1 list-none">
-                            <li><span class="text-emerald-400 mono">→</span> Launched deployment orchestration across organization-wide AWS accounts</li>
-                            <li><span class="text-emerald-400 mono">→</span> Designed APIs that didn't make customers file support tickets</li>
-                            <li><span class="text-emerald-400 mono">→</span> Mentored interns who became exceptional engineers</li>
-                        </ul>
-                    </article>
-                </div>
-            </section>
-
-            <div class="section-separator no-print"></div>
-
-            <section aria-labelledby="philosophy-heading" class="py-8 fade-in" style="animation-delay: 0.6s;">
-                <div class="mono text-sm text-slate-400 mb-6 no-print">
-                    <span class="text-emerald-400">dayne@aws</span>:<span class="text-blue-400">~</span>$ cat philosophy.txt | head -5
-                </div>
-                
-                <h2 id="philosophy-heading" class="sr-only">Engineering Philosophy</h2>
-                <div class="bg-slate-800 rounded-lg p-8 border border-slate-700">
-                    <div class="space-y-6 text-slate-300">
-                        <div>
-                            <h4 class="text-emerald-400 font-semibold mb-2 mono">"Build for the problem you have, not the one you think you'll have"</h4>
-                            <p class="text-sm">Premature optimization is still the root of most evil. <a href="https://blog.dandersen.net/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 underline">I've learned this the hard way approximately 47 times</a>.</p>
-                        </div>
-                        
-                        <div>
-                            <h4 class="text-emerald-400 font-semibold mb-2 mono">"Mentorship is the ultimate force multiplier"</h4>
-                            <p class="text-sm">The best code I've written is the code I helped someone else write. Plus, teaching people means they fix your bugs faster.</p>
-                        </div>
-                        
-                        <div>
-                            <h4 class="text-emerald-400 font-semibold mb-2 mono">"Embrace productive failure"</h4>
-                            <p class="text-sm"><a href="https://blog.dandersen.net/tags/homelab/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 underline">Self-hosting taught me why managed services exist</a>. Docker taught me why orchestration exists. Both were expensive lessons.</p>
-                        </div>
-                        
-                        <div>
-                            <h4 class="text-emerald-400 font-semibold mb-2 mono">"Infrastructure as Code should be human-readable"</h4>
-                            <p class="text-sm">If your <abbr title="AWS Cloud Development Kit">CDK</abbr> makes people want to quit software engineering, you're doing it wrong. Configuration should tell stories, not hide secrets.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="section-separator no-print"></div>
-
-            <section aria-labelledby="contact-heading" class="py-8 fade-in" style="animation-delay: 0.8s;">
-                <div class="mono text-sm text-slate-400 mb-6 no-print">
-                    <span class="text-emerald-400">dayne@aws</span>:<span class="text-blue-400">~</span>$ sendmail dayne@localhost
-                </div>
-                
-                <div class="bg-slate-800 rounded-lg p-8 border border-slate-700 text-center">
-                    <h3 id="contact-heading" class="text-2xl font-semibold text-white mb-4">Connect / Inquire</h3>
-                    <p class="text-slate-300 mb-6 max-w-lg mx-auto">
-                        Want to chat about distributed systems, why your docker containers are misbehaving, 
-                        or how to convince management that "it works on my machine" isn't a deployment strategy?
-                    </p>
-                    <div class="space-y-3">
-                        <p class="mono text-sm">
-                            <span class="text-slate-400">email:</span> 
-                            <a href="mailto:dayandersen@gmail.com" class="text-emerald-400 hover:text-emerald-300">dayandersen@gmail.com</a>
-                        </p>
-                        <p class="mono text-sm">
-                            <span class="text-slate-400">linkedin:</span> 
-                            <a href="https://linkedin.com/in/dayne-andersen" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">linkedin.com/in/dayne-andersen</a>
-                        </p>
-                    </div>
-                    <p class="text-slate-500 text-sm mt-6">
-                        Response time: Usually pretty good, unless I'm debugging why my deployment pipeline decided to take a vacation.
-                    </p>
-                </div>
-            </section>
+    <section id="work" class="section" aria-labelledby="work-heading">
+      <div class="section-heading"><p class="eyebrow">01 / Work</p><h2 id="work-heading">Selected impact</h2></div>
+      <div class="work-list">
+        <article class="work-item">
+          <div class="result"><strong>10</strong><span>people on the team I led</span></div>
+          <div><h3>Policy and compliance engineering</h3><p>Led a team working on policy and compliance tooling across Amazon.</p></div>
         </article>
-    </main>
+        <article class="work-item">
+          <div class="result"><strong>11 → 4</strong><span>weeks to onboard a tenant</span></div>
+          <div><h3>A shorter path to getting started</h3><p>Reduced tenant onboarding time for Amazon Publishing’s content review platform, helping teams start using it sooner.</p></div>
+        </article>
+        <article class="work-item">
+          <div class="result"><strong>$5M+</strong><span>annual infrastructure savings</span></div>
+          <div><h3>More efficient data processing</h3><p>Optimized data processing jobs at AWS DataSync and helped take DataSync Discovery from concept to a public AWS service.</p></div>
+        </article>
+      </div>
+    </section>
 
-    <footer class="bg-slate-800 border-t border-slate-700 mt-auto no-print">
-        <div class="container mx-auto px-6 py-6">
-            <div class="mono text-xs text-slate-500 space-y-2">
-                <div class="flex justify-between items-center">
-                    <span>&copy; <span id="currentYear"></span> Dayne Andersen-Lambrecht. All rights reserved.</span>
-                    <span class="terminal-cursor">_</span>
-                </div>
-                <div class="text-slate-600">
-                    <span class="text-emerald-400">//</span> Built with TailwindCSS because writing custom CSS is for people with more time than me
-                </div>
-            </div>
-        </div>
-    </footer>
+    <section id="experience" class="section" aria-labelledby="experience-heading">
+      <div class="section-heading"><p class="eyebrow">02 / Experience</p><h2 id="experience-heading">Where I’ve worked</h2></div>
+      <div class="experience-list">
+        <article>
+          <p class="meta"><time datetime="2023-09">Sep 2023</time> — Present</p>
+          <div>
+            <h3>Amazon</h3>
+            <p>Senior Software Engineer / Tech Lead</p>
+            <p>I led a team of 10 on policy and compliance engineering, working with teams across Amazon.</p>
+            <p>Previously at Amazon Publishing: content review platforms, tenant APIs, and engineering mentorship.</p>
+          </div>
+        </article>
+        <article>
+          <p class="meta"><time datetime="2021-09">Sep 2021</time> — <time datetime="2023-09">Sep 2023</time></p>
+          <div><h3>AWS DataSync</h3><p>Shipped DataSync Discovery from napkin sketch to public AWS service.</p></div>
+        </article>
+        <article>
+          <p class="meta"><time datetime="2019-02">Feb 2019</time> — <time datetime="2021-09">Sep 2021</time></p>
+          <div><h3>AWS Config</h3><p>Built compliance features for people who have way too many AWS accounts. Deployment orchestration and API design.</p></div>
+        </article>
+      </div>
+    </section>
 
-    <script>
-        try {
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-        } catch (e) {
-            console.warn('Could not set current year in footer.', e);
-        }
-    </script>
+    <section id="writing" class="section" aria-labelledby="writing-heading">
+      <div class="section-heading"><p class="eyebrow">03 / Writing</p><h2 id="writing-heading">Notes from building things</h2></div>
+      <p class="section-intro">Systems, self-hosting, and the occasional project that requires actual tools.</p>
+      <div class="writing-list">
+        <article>
+          <p class="meta">Self-hosting · <time datetime="2025-05-04">May 2025</time></p>
+          <h3><a href="https://blog.dandersen.net/2025/05/self-hosting-your-blog.html">Self Hosting Your Blog</a></h3>
+          <p>Running a Ghost blog on a Raspberry Pi with Docker.</p>
+        </article>
+        <article>
+          <p class="meta">DIY · <time datetime="2025-06-11">June 2025</time></p>
+          <h3><a href="https://blog.dandersen.net/2025/06/on-different-note-mini-split.html">On a Different Note, Mini Split Installation Guide :)</a></h3>
+          <p>A writeup of buying and installing a mini-split.</p>
+        </article>
+      </div>
+      <a class="text-link" href="https://blog.dandersen.net/">All writing</a>
+    </section>
+
+    <section id="contact" class="section contact" aria-labelledby="contact-heading">
+      <p class="eyebrow">04 / Contact</p>
+      <h2 id="contact-heading">Hiring for problems like these?</h2>
+      <p class="contact-detail">I’m interested in Seattle-area engineering roles in compliance infrastructure, trust and safety tooling, and distributed systems. Tell me about the team, the role, and what you’re trying to build.</p>
+      <p class="contact-detail"><a href="/resume">Read or print my résumé</a>. Include the location and compensation range when you get in touch.</p>
+      <!--email_off--><a class="contact-email" href="mailto:dayandersen@gmail.com?subject=Engineering%20role%20inquiry">dayandersen@gmail.com</a><!--/email_off-->
+      <div class="links"><a href="https://github.com/dayandersen">GitHub</a><a href="https://linkedin.com/in/dayne-andersen">LinkedIn</a><a href="https://blog.dandersen.net/">Blog</a></div>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><p>© Dayne Andersen-Lambrecht</p><a href="#main-content">Back to top</a></footer>
 </body>
 </html>
+

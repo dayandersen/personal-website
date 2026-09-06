@@ -1,0 +1,11 @@
+# Keep deployment aliases out of search; the custom domain remains indexable.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# Repository support files and the Blogger source are not website content.
+/README.md
+  X-Robots-Tag: noindex
+/blog/*
+  X-Robots-Tag: noindex
