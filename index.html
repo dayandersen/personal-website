@@ -8,6 +8,79 @@
   <meta name="description" content="Dayne Andersen-Lambrecht is a Senior Software Engineer / Tech Lead at Amazon working on distributed systems, policy tooling, and compliance engineering.">
   <link rel="canonical" href="https://dandersen.net/">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .project-shelf {
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: .35rem;
+    }
+    .project-shelf + .project-shelf { margin-top: 1rem; }
+    .project-shelf.ideation { --project-accent: #d8ae52; border-color: #8d7135; }
+    .project-shelf header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .project-shelf header .eyebrow { margin-bottom: .45rem; }
+    .project-shelf h3 { color: var(--text); }
+    .project-shelf.ideation h3,
+    .project-shelf.ideation .eyebrow,
+    .project-shelf.ideation .project-state { color: var(--project-accent); }
+    .project-count {
+      flex: 0 0 auto;
+      padding: .35rem .55rem;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font: .75rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+      white-space: nowrap;
+    }
+    .project-summary { max-width: 42rem; margin-bottom: 1.25rem; }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .75rem;
+    }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 10rem;
+      padding: 1rem;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: .25rem;
+      text-decoration: none;
+      transition: border-color .2s ease, transform .2s ease, background-color .2s ease;
+    }
+    .project-card:hover,
+    .project-card:focus-visible {
+      background: var(--surface);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .project-shelf.ideation .project-card:hover,
+    .project-shelf.ideation .project-card:focus-visible { border-color: var(--project-accent); }
+    .project-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .project-card-top { display: flex; justify-content: space-between; gap: .75rem; margin-bottom: .75rem; }
+    .project-state { color: var(--accent); font: .7rem/1.3 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .project-arrow { color: var(--muted); font-size: 1.1rem; line-height: 1; }
+    .project-card h4 { margin: 0 0 .45rem; color: var(--text); font-size: 1.1rem; line-height: 1.25; }
+    .project-card p { font-size: .9375rem; line-height: 1.5; }
+    .project-url { margin-top: auto; padding-top: .9rem; color: var(--muted); font: .7rem/1.3 ui-monospace, SFMono-Regular, Consolas, monospace; overflow-wrap: anywhere; }
+    @media (prefers-color-scheme: light) {
+      .project-shelf.ideation { --project-accent: #8a5a00; border-color: #b99a5c; }
+    }
+    @media (max-width: 44rem) {
+      .project-grid { grid-template-columns: 1fr; }
+      .project-shelf { padding: 1.15rem; }
+      .project-shelf header { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .project-card { transition: none; }
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -49,6 +122,7 @@
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
       <a href="#writing">Writing</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -91,7 +165,7 @@
         <article>
           <p class="meta"><time datetime="2023-09">Sep 2023</time> — Present</p>
           <div>
-            <h3>Amazon</h3>
+            <h3>Amazon Risk Detection, Auditing &amp; Reporting</h3>
             <p>Senior Software Engineer / Tech Lead</p>
             <p>I led a team of 10 on policy and compliance engineering, working with teams across Amazon.</p>
             <p>Previously at Amazon Publishing: content review platforms, tenant APIs, and engineering mentorship.</p>
@@ -134,8 +208,97 @@
       <!--email_off--><a class="contact-email" href="mailto:dayandersen@gmail.com?subject=Engineering%20role%20inquiry">dayandersen@gmail.com</a><!--/email_off-->
       <div class="links"><a href="https://github.com/dayandersen">GitHub</a><a href="https://linkedin.com/in/dayne-andersen">LinkedIn</a><a href="https://blog.dandersen.net/">Blog</a></div>
     </section>
+
+    <section id="projects" class="section" aria-labelledby="projects-heading">
+      <div class="section-heading"><p class="eyebrow">05 / Projects</p><h2 id="projects-heading">Projects</h2></div>
+
+      <div class="project-shelf">
+        <header>
+          <div>
+            <p class="eyebrow">Things you can open today</p>
+            <h3>Live builds</h3>
+          </div>
+          <span class="project-count">7 live builds</span>
+        </header>
+        <p class="project-summary">A short list of tools, experiments, and games that made it far enough to have a front door.</p>
+        <div class="project-grid">
+          <a class="project-card" href="https://homewalk.dandersen.net/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">private / live</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Homewalk</h4>
+            <p>Private house walkthroughs with photos, projects, room checklists, and reports.</p>
+            <span class="project-url">homewalk.dandersen.net</span>
+          </a>
+          <a class="project-card" href="https://finance-calculator.dandersen.net/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">live</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Finance Calculator</h4>
+            <p>Yearly federal and state tax scenarios, compared side by side.</p>
+            <span class="project-url">finance-calculator.dandersen.net</span>
+          </a>
+          <a class="project-card" href="https://financial-tools.pages.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">live</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Financial Tools</h4>
+            <p>A practical calculator hub for mortgages and everyday money decisions.</p>
+            <span class="project-url">financial-tools.pages.dev</span>
+          </a>
+          <a class="project-card" href="https://houseresearch.pages.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">live / prototype</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>House Research</h4>
+            <p>A structured way to compare homes, evidence, and the questions worth asking.</p>
+            <span class="project-url">houseresearch.pages.dev</span>
+          </a>
+          <a class="project-card" href="https://bless-you-change-me.pages.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">live / offline-first</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Bless You Change Me</h4>
+            <p>Check-ins, prayers, sponsor tasks, and progress tracking that stays useful offline.</p>
+            <span class="project-url">bless-you-change-me.pages.dev</span>
+          </a>
+          <a class="project-card" href="https://my-city.pages.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">live / prototype</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>My City</h4>
+            <p>A place-based feed for remembering the people and places worth returning to.</p>
+            <span class="project-url">my-city.pages.dev</span>
+          </a>
+          <a class="project-card" href="https://rust-online-pong.fly.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">playable</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Rust Online Pong</h4>
+            <p>A tiny online game built to make networking and real-time state tangible.</p>
+            <span class="project-url">rust-online-pong.fly.dev</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-shelf ideation">
+        <header>
+          <div>
+            <p class="eyebrow">Ideas with a front door</p>
+            <h3>Ideation zone</h3>
+          </div>
+          <span class="project-count">3 in orbit</span>
+        </header>
+        <p class="project-summary">Landing pages and product sketches that are alive, but not ready to call finished.</p>
+        <div class="project-grid">
+          <a class="project-card" href="https://betchacant.com/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">concept</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Betchacant</h4>
+            <p>A challenge-and-stakes product concept; the marketing shell is live, the product is still forming.</p>
+            <span class="project-url">betchacant.com</span>
+          </a>
+          <a class="project-card" href="https://spendoir.pages.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">coming soon</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Spendoir</h4>
+            <p>A private purchase scrapbook concept; the app and store launch are still ahead.</p>
+            <span class="project-url">spendoir.pages.dev</span>
+          </a>
+          <a class="project-card" href="https://launchpadfinance.pages.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">waitlist</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Launchpad Finance</h4>
+            <p>A support-to-independence finance concept, currently represented by its waitlist landing page.</p>
+            <span class="project-url">launchpadfinance.pages.dev</span>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="site-footer wrap"><p>© Dayne Andersen-Lambrecht</p><a href="#main-content">Back to top</a></footer>
 </body>
 </html>
-
