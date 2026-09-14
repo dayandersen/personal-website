@@ -11,6 +11,8 @@ Static homepage and engineering résumé for https://dandersen.net/.
 - `404.html`: actual not-found responses instead of the homepage fallback.
 - `_headers`: excludes Pages aliases and repository support files from search, without blocking the custom domain.
 - `blog/blog.html`: Blogger XML theme installed separately through Blogger.
+- `blog/content/`: normalized public Blogger posts prepared for a future static migration.
+- `blog/migration/`: Blogger export notes and the static-blog migration plan.
 
 ## Preview and publishing
 

@@ -51,6 +51,32 @@
 <Variable name="startSide" description="Start side in blog language" type="automatic" default="left" hideEditor="true" />
 <Variable name="endSide" description="End side in blog language" type="automatic" default="right" hideEditor="true" />
 
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-accent: #34d399;
+  --border-primary: #475569;
+  --border-accent: #10b981;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --text-accent: #059669;
+    --border-primary: #cbd5e1;
+    --border-accent: #10b981;
+  }
+}
+
 <!-- Variable definitions -->
 
 <Group description="Body">
@@ -308,6 +334,30 @@ top:0;
 transition:box-shadow .3s,height .3s,padding-top .3s;
 width:100%;
 z-index:900
+}
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.sr-only:focus {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 50 !important;
+  padding: 1rem !important;
+  background-color: #34d399 !important;
+  color: white !important;
+  width: auto !important;
+  height: auto !important;
+  clip: auto !important;
 }
 .skip-navigation:focus{
 box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
@@ -1357,10 +1407,11 @@ color:$(body.link.visited.color)
 color:$(body.link.hover.color)
 }
 body{
-background-color:$(body.background.color);
-color:$(body.text.color);
+background-color: var(--bg-primary);
+color: var(--text-primary);
 font:$(body.text.font);
-margin:0 auto
+margin:0 auto;
+transition: background-color 0.3s ease, color 0.3s ease
 }
 .unused{
 background:$(body.background.color)
@@ -2849,6 +2900,75 @@ body.item-view .post-body-container .separator[style*="text-align: center"] a[im
 max-width:100%
 }
 }
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.4;
+    font-family: 'Times New Roman', serif;
+  }
+
+  .centered-top-container,
+  .sidebar-container,
+  .hamburger-section,
+  .search,
+  .navigation,
+  .post-share-buttons,
+  .sharing-button,
+  footer,
+  .attribution {
+    display: none !important;
+  }
+
+  .main_content_container {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 1cm !important;
+  }
+
+  .post-outer-container {
+    page-break-inside: avoid;
+    margin-bottom: 1cm;
+    border: 1px solid #ccc !important;
+    padding: 0.5cm !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  .post-title {
+    font-size: 18pt !important;
+    margin-bottom: 8pt !important;
+  }
+
+  .post-body {
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+  }
+
+  .mono, .terminal-prompt {
+    font-family: 'Courier New', monospace !important;
+  }
+}
+
 @media screen and (min-width:$(feed.width + sidebar.width + 20px)){
 .page{
 float:left
@@ -2876,6 +2996,48 @@ width:100%
 #footer{
 padding-right:$(sidebar.width)
 }
+}
+
+/* Keep the Blogger shell aligned with the portfolio's dayne / identity. */
+.portfolio-wordmark {
+  color: #e2e8f0 !important;
+  display: inline-block;
+  font: 700 21px/1.2 'Inter', sans-serif !important;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  text-transform: lowercase !important;
+}
+
+.portfolio-wordmark .portfolio-slash {
+  color: #34d399;
+}
+
+.portfolio-nav {
+  border-top: 1px solid #334155;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 16px;
+}
+
+.portfolio-nav a {
+  color: #e2e8f0 !important;
+  font: 500 14px/1.4 'JetBrains Mono', monospace !important;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.portfolio-nav a:hover {
+  color: #34d399 !important;
+  text-decoration: underline;
+}
+
+.portfolio-nav a:focus-visible,
+.portfolio-wordmark:focus-visible {
+  outline: 3px solid #34d399;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 ]]></b:skin>
 
@@ -3310,7 +3472,8 @@ padding-right:$(sidebar.width)
     <script async='async' src='https://www.gstatic.com/external_hosted/clipboardjs/clipboard.min.js'/>
   </head>
 
-  <body class='container'>
+ <body class='container'>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-emerald-500 focus:text-white">Skip to main content</a>
     <b:class cond='data:view.isPreview' name='preview'/>
     <b:class cond='data:view.isMultipleItems' name='feed-view'/>
     <b:class cond='data:view.isSingleItem' name='item-view'/>
@@ -3331,7 +3494,7 @@ padding-right:$(sidebar.width)
               <!-- Blog name and header -->
               <div class='blog-name'>
                 <b:section id='header' name='Header' showaddelement='false'>
-                  <b:widget id='Header1' locked='true' title='Dandersens Blogging Here (Header)' type='Header' visible='true'>
+                  <b:widget id='Header1' locked='true' title='Dayne / Writing (Header)' type='Header' visible='true'>
                     <b:widget-settings>
                       <b:widget-setting name='displayUrl'/>
                       <b:widget-setting name='displayHeight'>0</b:widget-setting>
@@ -3373,8 +3536,7 @@ padding-right:$(sidebar.width)
         </b:includable>
                     <b:includable id='title'>
           <div>
-            <b:class cond='data:this.imagePlacement == &quot;REPLACE&quot;' name='replaced'/>
-            <b:include name='super.title'/>
+            <a class='portfolio-wordmark' href='https://dandersen.net/' aria-label='Dayne Andersen-Lambrecht, home'>dayne<span class='portfolio-slash' aria-hidden='true'> /</span></a>
           </div>
         </b:includable>
                   </b:widget>
@@ -3435,7 +3597,11 @@ padding-right:$(sidebar.width)
             </div>
             <!-- End hamburger menu -->
           </div>
-          <nav role='navigation'>
+          <nav class='portfolio-nav' aria-label='Portfolio navigation'>
+            <a href='https://dandersen.net/'>Home</a>
+            <a href='https://dandersen.net/#work'>Work</a>
+            <a href='https://dandersen.net/#projects'>Projects</a>
+            <a href='https://dandersen.net/#contact'>Contact</a>
             <b:section class='centered-top-secondline' id='page_list_top' name='Page List (Top)' showaddelement='false'>
               <b:widget id='PageList1' locked='true' title='' type='PageList' visible='false'>
                 <b:widget-settings>
