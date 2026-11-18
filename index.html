@@ -17,6 +17,7 @@
     }
     .project-shelf + .project-shelf { margin-top: 1rem; }
     .project-shelf.ideation { --project-accent: #d8ae52; border-color: #8d7135; }
+    .project-shelf.diy { --project-accent: #7fb58a; border-color: #4d7556; }
     .project-shelf header {
       display: flex;
       align-items: flex-start;
@@ -28,7 +29,10 @@
     .project-shelf h3 { color: var(--text); }
     .project-shelf.ideation h3,
     .project-shelf.ideation .eyebrow,
-    .project-shelf.ideation .project-state { color: var(--project-accent); }
+    .project-shelf.ideation .project-state,
+    .project-shelf.diy h3,
+    .project-shelf.diy .eyebrow,
+    .project-shelf.diy .project-state { color: var(--project-accent); }
     .project-count {
       flex: 0 0 auto;
       padding: .35rem .55rem;
@@ -61,7 +65,9 @@
       transform: translateY(-2px);
     }
     .project-shelf.ideation .project-card:hover,
-    .project-shelf.ideation .project-card:focus-visible { border-color: var(--project-accent); }
+    .project-shelf.ideation .project-card:focus-visible,
+    .project-shelf.diy .project-card:hover,
+    .project-shelf.diy .project-card:focus-visible { border-color: var(--project-accent); }
     .project-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
     .project-card-top { display: flex; justify-content: space-between; gap: .75rem; margin-bottom: .75rem; }
     .project-state { color: var(--accent); font: .7rem/1.3 ui-monospace, SFMono-Regular, Consolas, monospace; }
@@ -71,6 +77,7 @@
     .project-url { margin-top: auto; padding-top: .9rem; color: var(--muted); font: .7rem/1.3 ui-monospace, SFMono-Regular, Consolas, monospace; overflow-wrap: anywhere; }
     @media (prefers-color-scheme: light) {
       .project-shelf.ideation { --project-accent: #8a5a00; border-color: #b99a5c; }
+      .project-shelf.diy { --project-accent: #2f6b3c; border-color: #8fb399; }
     }
     @media (max-width: 44rem) {
       .project-grid { grid-template-columns: 1fr; }
@@ -279,10 +286,16 @@
             <p class="eyebrow">Ideas with a front door</p>
             <h3>Ideation zone</h3>
           </div>
-          <span class="project-count">3 in orbit</span>
+          <span class="project-count">4 in orbit</span>
         </header>
         <p class="project-summary">Landing pages and product sketches that are alive, but not ready to call finished.</p>
         <div class="project-grid">
+          <a class="project-card" href="https://onekind-prototype.dandersen.net/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">prototype</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Onekind</h4>
+            <p>A nonprofit matchmaker sketch: one introduction per cycle, one real date. Modeled on Singapore’s government-run FirstDate pilot, which uses stable matching for one-match introductions. Sample members are fictional.</p>
+            <span class="project-url">onekind-prototype.dandersen.net</span>
+          </a>
           <a class="project-card" href="https://betchacant.com/" target="_blank" rel="noopener noreferrer">
             <div class="project-card-top"><span class="project-state">concept</span><span class="project-arrow" aria-hidden="true">↗</span></div>
             <h4>Betchacant</h4>
@@ -300,6 +313,43 @@
             <h4>Launchpad Finance</h4>
             <p>A support-to-independence finance concept, currently represented by its waitlist landing page.</p>
             <span class="project-url">launchpadfinance.pages.dev</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-shelf diy">
+        <header>
+          <div>
+            <p class="eyebrow">Notes from the garage</p>
+            <h3>DIY zone</h3>
+          </div>
+          <span class="project-count">4 shop guides</span>
+        </header>
+        <p class="project-summary">Reference pages and planners I built while working on the house. Check product data sheets before you buy.</p>
+        <div class="project-grid">
+          <a class="project-card" href="https://caulk.dandersen.net/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">field guide</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Trim Caulk Field Guide</h4>
+            <p>Sixteen paintable caulks compared from their data sheets, with a pick-by-job picker for gluing, filling, and painting trim.</p>
+            <span class="project-url">caulk.dandersen.net</span>
+          </a>
+          <a class="project-card" href="https://trowel.dandersen.net/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">chart</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Clean Joints Trowel Chart</h4>
+            <p>Notch sizes by tile type for the least thinset squeeze-up and grout-line cleanup.</p>
+            <span class="project-url">trowel.dandersen.net</span>
+          </a>
+          <a class="project-card" href="https://spray-paint.dandersen.net/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">guide</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>Spray Paint Guide</h4>
+            <p>Spray paints compared by resin, surfaces, recoat windows, cure times, and known failure modes.</p>
+            <span class="project-url">spray-paint.dandersen.net</span>
+          </a>
+          <a class="project-card" href="https://packout.dandersen.net/" target="_blank" rel="noopener noreferrer">
+            <div class="project-card-top"><span class="project-state">planner / offline</span><span class="project-arrow" aria-hidden="true">↗</span></div>
+            <h4>PACKOUT Cart Workbench</h4>
+            <p>Plan Milwaukee PACKOUT stacks in 3D and split orders to make the most of Buy More Save More deals.</p>
+            <span class="project-url">packout.dandersen.net</span>
           </a>
         </div>
       </div>
